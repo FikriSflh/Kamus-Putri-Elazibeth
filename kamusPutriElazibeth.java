@@ -23,3 +23,10 @@ public class kamusPutriElazibeth {
             }
             return Math.abs(hash) % size;
         }       
+    public void insert(String kata) {
+            int hashedKata = hashFunction(kata);
+            ArrayList<String> bucket = table[hashedKata];
+            if (!bucket.contains(kata)) {
+                bucket.add(kata);
+            }
+        }

@@ -58,3 +58,13 @@ public class kamusPutriElazibeth {
             String word = matcher.group();
             hashTable.insert(word);
         }
+    ArrayList<String> kataUnik = hashTable.temukanKata();
+        Collections.sort(kataUnik);
+
+        for (String word : kataUnik) {
+            System.out.println(word);
+        }
+
+        sc.close();
+    }
+}

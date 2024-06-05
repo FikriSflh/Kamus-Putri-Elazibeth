@@ -30,3 +30,11 @@ public class kamusPutriElazibeth {
                 bucket.add(kata);
             }
         }
+    public ArrayList<String> temukanKata() {
+            ArrayList<String> sekata = new ArrayList<>();
+            for (ArrayList<String> bucket : table) {
+                sekata.addAll(bucket);
+            }
+            return sekata;
+        }
+    }

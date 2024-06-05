@@ -1,4 +1,7 @@
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class kamusPutriElazibeth {
 
@@ -38,3 +41,20 @@ public class kamusPutriElazibeth {
             return sekata;
         }
     }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Masukkan paragraf:");
+        String inputText = sc.nextLine();
+
+        inputText = inputText.toLowerCase();
+
+        Pattern pattern = Pattern.compile("\\b[a-z]+\\b");
+        Matcher matcher = pattern.matcher(inputText);
+
+        HashTable hashTable = new HashTable(5000);
+
+        while (matcher.find()) {
+            String word = matcher.group();
+            hashTable.insert(word);
+        }

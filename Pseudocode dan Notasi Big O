@@ -1,0 +1,101 @@
+Class HashTable
+
+    Attributes:
+
+        size : Integer 						O(1)
+
+        table : Array of ArrayLists of Strings			O(1)
+
+	
+
+    Constructor HashTable(size): 				O(1)	
+
+        size ← input size						O(1)
+
+        table ← array of size empty ArrayLists			O(1)
+
+        FOR I  ← 0 to size 					O(n)
+
+	Table ← new array list				O(1)
+
+       END FOR
+
+
+
+    Method hashFunction(kata):				O(n)
+
+        hash ← 0							O(1)
+
+        FOR i ← 0 to length of kata – 1				O(n)
+
+            ch ← kata[i]						O(1)
+
+            asciiValue ← ASCII value of ch			O(1)
+
+            hash ← (hash * 31 + asciiValue) & 0xFFFFFFFF   	O(1)   
+
+       END FOR
+
+        RETURN |hash| % size					O(1)
+
+
+
+    Method insert(kata): 					O(n)
+
+        hashedKata ← hashFunction(kata)			O(n)	
+
+        bucket ← table[hashedKata] 				O(1)
+
+        IF kata NOT IN bucket					O(n)
+
+            ADD kata TO bucket					O(1)
+
+        END IF
+
+    Method temukanKata():					O(n)
+
+        sekata ← empty ArrayList				O(1)
+
+        FOR each bucket IN table				O(n)
+
+            ADD all elements of bucket TO sekata 		O(m)
+
+        END FOR
+
+        RETURN sekata						O(1)
+
+
+
+Method main:
+
+    PRINT "Masukkan paragraf:"				O(1)
+
+    inputText ← read line from input 				O(1)	
+
+    inputText ← inputText to lowercase			O(1)
+
+    pattern ← regex pattern to match words			O(1)
+
+    matcher ← pattern matcher for inputText			O(1)
+
+    hashTable ← new HashTable(5000)			O(1)
+
+    WHILE matcher finds a word				O(p)
+
+        word ← matcher group					O(1)
+
+        CALL hashTable.insert(word)				O(n)
+
+   END WHILE  
+
+    kataUnik ← CALL hashTable.temukanKata()		O(m)
+
+    SORT kataUnik						O(m log m)
+
+    FOR each word IN kataUnik				O(m)
+
+        PRINT word 						O(1)
+
+    END FOR
+
+    CLOSE input						O(1)

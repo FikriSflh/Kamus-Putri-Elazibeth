@@ -99,3 +99,14 @@ Method main:
     END FOR
 
     CLOSE input						O(1)
+
+
+Total Kompleksitas Waktu 
+•	O(p * n) + O(m log m)
+        Jadi, notasi Big O total adalah
+•	O(p*n + m log m)
+
+Yang mana:
+P= Panjang teks input 
+n= panjang kata 
+m= jumlah kata unik

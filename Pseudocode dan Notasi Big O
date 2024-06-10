@@ -7,7 +7,6 @@ Class HashTable
         table : Array of ArrayLists of Strings			O(1)
 
 	
-
     Constructor HashTable(size): 				O(1)	
 
         size ← input size						O(1)
@@ -16,10 +15,9 @@ Class HashTable
 
         FOR I  ← 0 to size 					O(n)
 
-	Table ← new array list				O(1)
+		Table ← new array list				O(1)
 
-       END FOR
-
+        END FOR
 
 
     Method hashFunction(kata):				O(n)
@@ -37,7 +35,6 @@ Class HashTable
        END FOR
 
         RETURN |hash| % size					O(1)
-
 
 
     Method insert(kata): 					O(n)
@@ -58,12 +55,11 @@ Class HashTable
 
         FOR each bucket IN table				O(n)
 
-            ADD all elements of bucket TO sekata 		O(m)
+            ADD all elements of bucket TO sekata 		O(n)
 
         END FOR
 
         RETURN sekata						O(1)
-
 
 
 Method main:
@@ -80,7 +76,7 @@ Method main:
 
     hashTable ← new HashTable(5000)			O(1)
 
-    WHILE matcher finds a word				O(p)
+    WHILE matcher finds a word				O(n)
 
         word ← matcher group					O(1)
 
@@ -88,11 +84,11 @@ Method main:
 
    END WHILE  
 
-    kataUnik ← CALL hashTable.temukanKata()		O(m)
+    kataUnik ← CALL hashTable.temukanKata()		O(n)
 
-    SORT kataUnik						O(m log m)
+    SORT kataUnik						O(n log n)
 
-    FOR each word IN kataUnik				O(m)
+    FOR each word IN kataUnik				O(n)
 
         PRINT word 						O(1)
 
@@ -101,12 +97,9 @@ Method main:
     CLOSE input						O(1)
 
 
-Total Kompleksitas Waktu 
-•	O(p * n) + O(m log m)
-        Jadi, notasi Big O total adalah
-•	O(p*n + m log m)
+Analisis Big O 
+•	1+1+1+1+1+(n*1)+1+n+1+((n-1)*3)+1+n+n+1+(n*1)+n+1+(n*n)+1+1+1+1+1+1+1(n*(1+n)+n+n log n+(n*1)+1
+•	=18+(12n-3) +(n^2 + n^2 + 2n) + n log n
+	=15 + 14n + 2n^2 + n log n
 
-Yang mana:
-P= Panjang teks input 
-n= panjang kata 
-m= jumlah kata unik
+eskpresi dengan pertubuhan terbesar yaitu n^2 maka notasi Big O nya adalag O(n^2)
